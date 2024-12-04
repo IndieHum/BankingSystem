@@ -12,3 +12,4 @@
 /home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.pdb
 /home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.genruntimeconfig.cache
 /home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/ref/BankingSystem.dll
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.sourcelink.json
