@@ -2,6 +2,9 @@
 
 class Bank
 {
+  static Random ranNum = new Random();
+  static long accountBalance = ranNum.Next(1200, 21000);
+
   static void Main(string[] args)
   {
     Console.Clear();
@@ -51,7 +54,33 @@ class Bank
   static void Menu(string username, string password)
   {
     Console.Clear();
-    Console.WriteLine($"Welcome {username}");
+    Console.WriteLine($"Welcome {username}\n");
+    Console.WriteLine($"your account balance: {accountBalance:C}\n");
+    Console.WriteLine("What you want to do?\n1) Deposit Money\n2) Withdraw Money\n3) Exit");
+
+    bool isDone = false;
+
+    while (!isDone)
+    {
+      Arrow();
+      string userInput = Console.ReadLine();
+
+      if (int.TryParse(userInput, out int input) && input >= 1 && input <= 3)
+      {
+        switch (input)
+        {
+          case 1:
+            break;
+          case 2:
+            break;
+          case 3:
+            isDone = true;
+            Console.WriteLine("bye bye, we will stole your money");
+            break;
+        }
+      }
+      else Console.WriteLine("Adam bash doost aziz");
+    }
   }
 
   static void Arrow() => Console.Write("=> ");
