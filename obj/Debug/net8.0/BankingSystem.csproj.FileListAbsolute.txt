@@ -1,0 +1,14 @@
+/home/moein/Desktop/linuxDev/BankingSystem/bin/Debug/net8.0/BankingSystem
+/home/moein/Desktop/linuxDev/BankingSystem/bin/Debug/net8.0/BankingSystem.deps.json
+/home/moein/Desktop/linuxDev/BankingSystem/bin/Debug/net8.0/BankingSystem.runtimeconfig.json
+/home/moein/Desktop/linuxDev/BankingSystem/bin/Debug/net8.0/BankingSystem.dll
+/home/moein/Desktop/linuxDev/BankingSystem/bin/Debug/net8.0/BankingSystem.pdb
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.GeneratedMSBuildEditorConfig.editorconfig
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.AssemblyInfoInputs.cache
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.AssemblyInfo.cs
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.csproj.CoreCompileInputs.cache
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.dll
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/refint/BankingSystem.dll
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.pdb
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/BankingSystem.genruntimeconfig.cache
+/home/moein/Desktop/linuxDev/BankingSystem/obj/Debug/net8.0/ref/BankingSystem.dll
