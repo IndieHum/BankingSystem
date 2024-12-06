@@ -24,6 +24,8 @@ class Bank
     return $"{Names[ranNum.Next(0, 7)]} {LastNames[ranNum.Next(0, 4)]}";
   }
 
+  static void PayamMohtaramane() => Console.WriteLine("Adam bash doost aziz");
+
   static void Main(string[] args)
   {
     Console.Clear();
@@ -92,7 +94,7 @@ class Bank
             DepositMoney();
             break;
           case 2:
-            WithDrawMoney();
+            WithdrawMoney();
             break;
           case 3:
             isDone = true;
@@ -104,12 +106,43 @@ class Bank
     }
   }
 
-  static void WithdrawMoney() { Console.WriteLine("Incomplete."); }
+  static void WithdrawMoney()
+  {
+    Console.WriteLine("Write SERIAL CARD you want send money:");
+    Arrow();
+    string ClientSerial = Console.ReadLine();
+
+    if (SerialCardCheck(ClientSerial))
+    {
+      Console.WriteLine($"The serial card you enter is for {NameGenerate()}.");
+      Console.WriteLine("If its true, enter money you want to send\nIf not, enter anything else.");
+
+      Arrow();
+      string ClientMoney = Console.ReadLine();
+
+      if (int.TryParse(ClientMoney, out int ClientMoneyInt) &&
+          ClientMoneyInt <= 0 && ClientMoneyInt >= accountBalance)
+      {
+        accountBalance -= ClientMoneyInt;
+        Console.WriteLine("Money withdraw successfully!");
+        Console.WriteLine($"your account balance: {accountBalance:C}\n");
+      }
+      else PayamMohtaramane();
+    }
+    else Console.WriteLine("Enter only numbers.");
+  }
+
+  static bool SerialCardCheck(string text)
+  {
+    string numCheck = @"^\d{16}$";
+    if (StringValidCheck(text) && Regex.IsMatch(text, numCheck)) return true;
+    return false;
+  }
 
   static void DepositMoney()
   {
     long Deposit = ranNum.Next(1, 666);
-    Console.WriteLine($"This is your CARD SERIAL, send it to whom you want money from there.\n{SerialCard}");
+    Console.WriteLine($"This is your SERIAL CARD, send it to whom you want money from there.\n{SerialCard}");
     System.Threading.Thread.Sleep(1500);
     Console.WriteLine("Proccesing...");
     System.Threading.Thread.Sleep(3000);
