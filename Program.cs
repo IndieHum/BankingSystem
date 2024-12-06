@@ -4,6 +4,25 @@ class Bank
 {
   static Random ranNum = new Random();
   static long accountBalance = ranNum.Next(1200, 21000);
+  static string SerialCard = CardSerial();
+
+  static string CardSerial()
+  {
+    string SerieOne = $"{ranNum.Next(1111, 9999)}";
+    string SerieTwo = $"{ranNum.Next(1111, 9999)}";
+    string SerieThree = $"{ranNum.Next(1111, 9999)}";
+    string SerieFour = $"{ranNum.Next(1111, 9999)}";
+
+    return $"{SerieOne} - {SerieTwo} - {SerieThree} - {SerieFour}";
+  }
+
+  static string NameGenerate()
+  {
+    string[] Names = { "Ali", "Hasan", "Hosein", "Sajad", "Bagher", "Sadegh", "Kazem", "Reza" };
+    string[] LastNames = { "Zamani", "Askari", "Naghavi", "Javadi", "Razavi" };
+
+    return $"{Names[ranNum.Next(0, 7)]} {LastNames[ranNum.Next(0, 4)]}";
+  }
 
   static void Main(string[] args)
   {
@@ -70,8 +89,10 @@ class Bank
         switch (input)
         {
           case 1:
+            DepositMoney();
             break;
           case 2:
+            WithDrawMoney();
             break;
           case 3:
             isDone = true;
@@ -81,6 +102,22 @@ class Bank
       }
       else Console.WriteLine("Adam bash doost aziz");
     }
+  }
+
+  static void WithdrawMoney() { Console.WriteLine("Incomplete."); }
+
+  static void DepositMoney()
+  {
+    long Deposit = ranNum.Next(1, 666);
+    Console.WriteLine($"This is your CARD SERIAL, send it to whom you want money from there.\n{SerialCard}");
+    System.Threading.Thread.Sleep(1500);
+    Console.WriteLine("Proccesing...");
+    System.Threading.Thread.Sleep(3000);
+    Console.WriteLine($"{Deposit:C} | This amount of money is sent by {NameGenerate()}");
+
+    accountBalance += Deposit;
+
+    Console.WriteLine($"\nyour account balance: {accountBalance:C}");
   }
 
   static void Arrow() => Console.Write("=> ");
