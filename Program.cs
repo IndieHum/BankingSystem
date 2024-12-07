@@ -18,8 +18,8 @@ class Bank
 
   static string NameGenerate()
   {
-    string[] Names = { "Ali", "Hasan", "Hosein", "Sajad", "Bagher", "Sadegh", "Kazem", "Reza" };
-    string[] LastNames = { "Zamani", "Askari", "Naghavi", "Javadi", "Razavi" };
+    string[] Names = { "Fatemeh", "Ali", "Hasan", "Hosein", "Sajad", "Bagher", "Sadegh" };
+    string[] LastNames = { "Zamani", "Askari", "Naghavi", "Javadi", "Razavi", "Kazemi", "Mohammadi" };
 
     return $"{Names[ranNum.Next(0, 7)]} {LastNames[ranNum.Next(0, 4)]}";
   }
@@ -76,13 +76,13 @@ class Bank
   {
     Console.Clear();
     Console.WriteLine($"Welcome {username}\n");
-    Console.WriteLine($"your account balance: {accountBalance:C}\n");
-    Console.WriteLine("What you want to do?\n1) Deposit Money\n2) Withdraw Money\n3) Exit");
+    Console.WriteLine($"your account balance: {accountBalance:C}");
 
     bool isDone = false;
 
     while (!isDone)
     {
+      Console.WriteLine("\nWhat you want to do?\n1) Deposit Money\n2) Withdraw Money\n3) Exit");
       Arrow();
       string userInput = Console.ReadLine();
 
@@ -120,6 +120,7 @@ class Bank
       Arrow();
       string ClientMoney = Console.ReadLine();
 
+      // have error, not fixed yet!
       if (int.TryParse(ClientMoney, out int ClientMoneyInt) &&
           ClientMoneyInt <= 0 && ClientMoneyInt >= accountBalance)
       {
@@ -127,7 +128,7 @@ class Bank
         Console.WriteLine("Money withdraw successfully!");
         Console.WriteLine($"your account balance: {accountBalance:C}\n");
       }
-      else PayamMohtaramane();
+      else return;
     }
     else Console.WriteLine("Enter only numbers.");
   }
