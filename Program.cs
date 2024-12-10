@@ -120,9 +120,9 @@ class Bank
       Arrow();
       string ClientMoney = Console.ReadLine();
 
-      // have error, not fixed yet!
+      // have an error, not fixed yet!
       if (int.TryParse(ClientMoney, out int ClientMoneyInt) &&
-          ClientMoneyInt <= 0 && ClientMoneyInt >= accountBalance)
+          ClientMoneyInt >= 0 && ClientMoneyInt <= accountBalance)
       {
         accountBalance -= ClientMoneyInt;
         Console.WriteLine("Money withdraw successfully!");
@@ -130,7 +130,7 @@ class Bank
       }
       else return;
     }
-    else Console.WriteLine("Enter only numbers.");
+    else Console.WriteLine("Serial Card is wrong!");
   }
 
   static bool SerialCardCheck(string text)
