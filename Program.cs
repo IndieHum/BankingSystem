@@ -2,11 +2,11 @@
 
 class Bank
 {
-  static Random ranNum = new Random();
-  static long accountBalance = ranNum.Next(1200, 21000);
-  static string SerialCard = CardSerial();
+  public static Random ranNum = new Random();
+  public static long accountBalance = ranNum.Next(1200, 21000);
+  public static string SerialCard = CardSerial();
 
-  static string CardSerial()
+  public static string CardSerial()
   {
     string SerieOne = $"{ranNum.Next(1111, 9999)}";
     string SerieTwo = $"{ranNum.Next(1111, 9999)}";
@@ -16,7 +16,7 @@ class Bank
     return $"{SerieOne} - {SerieTwo} - {SerieThree} - {SerieFour}";
   }
 
-  static string NameGenerate()
+  public static string NameGenerate()
   {
     string[] Names = { "Fatemeh", "Ali", "Hasan", "Hosein", "Sajad", "Bagher", "Sadegh" };
     string[] LastNames = { "Zamani", "Askari", "Naghavi", "Javadi", "Razavi", "Kazemi", "Mohammadi" };
@@ -24,8 +24,11 @@ class Bank
     return $"{Names[ranNum.Next(0, 7)]} {LastNames[ranNum.Next(0, 4)]}";
   }
 
-  static void PayamMohtaramane() => Console.WriteLine("Adam bash doost aziz");
+  public static void PayamMohtaramane() => Console.WriteLine("Adam bash doost aziz");
+}
 
+class Program
+{
   static void Main(string[] args)
   {
     Console.Clear();
@@ -76,7 +79,7 @@ class Bank
   {
     Console.Clear();
     Console.WriteLine($"Welcome {username}\n");
-    Console.WriteLine($"your account balance: {accountBalance:C}");
+    Console.WriteLine($"your account balance: {Bank.accountBalance:C}");
 
     bool isDone = false;
 
@@ -114,7 +117,7 @@ class Bank
 
     if (SerialCardCheck(ClientSerial))
     {
-      Console.WriteLine($"The serial card you enter is for {NameGenerate()}.");
+      Console.WriteLine($"The serial card you enter is for {Bank.NameGenerate()}.");
       Console.WriteLine("If its true, enter money you want to send\nIf not, enter anything else.");
 
       Arrow();
@@ -122,11 +125,11 @@ class Bank
 
       // have an error, not fixed yet!
       if (int.TryParse(ClientMoney, out int ClientMoneyInt) &&
-          ClientMoneyInt >= 0 && ClientMoneyInt <= accountBalance)
+          ClientMoneyInt >= 0 && ClientMoneyInt <= Bank.accountBalance)
       {
-        accountBalance -= ClientMoneyInt;
+        Bank.accountBalance -= ClientMoneyInt;
         Console.WriteLine("Money withdraw successfully!");
-        Console.WriteLine($"your account balance: {accountBalance:C}\n");
+        Console.WriteLine($"your account balance: {Bank.accountBalance:C}\n");
       }
       else return;
     }
@@ -142,16 +145,16 @@ class Bank
 
   static void DepositMoney()
   {
-    long Deposit = ranNum.Next(1, 666);
-    Console.WriteLine($"This is your SERIAL CARD, send it to whom you want money from there.\n{SerialCard}");
+    long Deposit = Bank.ranNum.Next(1, 666);
+    Console.WriteLine($"This is your SERIAL CARD, send it to whom you want money from there.\n{Bank.SerialCard}");
     System.Threading.Thread.Sleep(1500);
     Console.WriteLine("Proccesing...");
     System.Threading.Thread.Sleep(3000);
-    Console.WriteLine($"{Deposit:C} | This amount of money is sent by {NameGenerate()}");
+    Console.WriteLine($"{Deposit:C} | This amount of money is sent by {Bank.NameGenerate()}");
 
-    accountBalance += Deposit;
+    Bank.accountBalance += Deposit;
 
-    Console.WriteLine($"\nyour account balance: {accountBalance:C}");
+    Console.WriteLine($"\nyour account balance: {Bank.accountBalance:C}");
   }
 
   static void Arrow() => Console.Write("=> ");
